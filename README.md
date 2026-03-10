@@ -1,47 +1,35 @@
-# 🌊 video-waves
+# video-waves
 
-**video-waves** is a high-performance, minimalist audio waveform renderer. Optimized for macOS (M1/M2/M3) and designed with an industrial, cold-aesthetic in mind. It transforms your audio files into stunning 1080p videos with reactive lighting, grain textures, and fluid motion.
+![demo](wave.png)
 
-## ⚡ Highlights
+A Python CLI that turns audio files into 1080p waveform videos. Built for Apple Silicon with hardware-accelerated encoding and a cold, industrial aesthetic — white waveforms, mirrored shadows, grain and scanlines.
 
-- **M1/M2/M3 Native**: Uses `h264_videotoolbox` for hardware-accelerated encoding.
-- **Industrial Aesthetic**: Cold-white waveforms, mirrored shadows, and CRT-style scanlines.
-- **Reactive Glow**: Dynamic lighting that pulses with the audio's intensity (RMS).
-- **Vectorized Performance**: Frame rendering is fully vectorized using NumPy and OpenCV for maximum speed.
-- **Batch Processing**: Point it at a folder and let it render your entire album or library.
-- **Smart Progress**: Real-time progress bar with ETA and FPS tracking.
+## Requirements
 
-## 🛠️ Requirements
-
-- **Python 3.8+**
-- **FFmpeg** (installed via Homebrew: `brew install ffmpeg`)
-- **Python Libraries**:
-  ```bash
-  pip install librosa numpy moviepy opencv-python
-  ```
-
-## 🚀 Usage
-
-Navigate to the project directory and run:
-
-### Process a single file
+- Python 3.8+
+- FFmpeg — `brew install ffmpeg`
 ```bash
-python3 visualizer.py "/path/to/your/audio.aif"
+pip install librosa numpy moviepy opencv-python
 ```
 
-### Batch process a folder
+## Usage
 ```bash
-python3 visualizer.py "/path/to/your/music_folder"
+# Single file
+python3 visualizer.py "/path/to/audio.aif"
+
+# Batch
+python3 visualizer.py "/path/to/music_folder"
 ```
 
-### Options
-- `-d`, `--duration`: Limit the render (e.g., `-d 15` for a 15-second preview).
-- `--fps`: Set output framerate (default: 30).
-- `--width` / `--height`: Custom resolution (default: 1920x1080).
-- `--out-dir`: Specify where to save the videos.
+**Options**
 
-## 🎨 Visual Configuration
-You can tweak the look and feel by editing the `CFG` dictionary at the top of `visualizer.py`. Change colors, grain intensity, sphere distortion, and more.
+| Flag | Description | Default |
+|------|-------------|---------|
+| `-d` | Duration limit in seconds | full |
+| `--fps` | Framerate | 30 |
+| `--width` / `--height` | Resolution | 1920x1080 |
+| `--out-dir` | Output directory | same as input |
 
-## 🙏 Credits
-Developed as a high-fidelity visual tool for musicians and producers.
+## Configuration
+
+Edit the `CFG` dict at the top of `visualizer.py` to adjust colors, grain intensity, glow and distortion.
