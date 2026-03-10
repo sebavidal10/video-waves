@@ -1,0 +1,27 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.venv
+env/
+venv/
+ENV/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Project Specific
+*.mp4
+*.m4a
+temp-audio.m4a
+.idea/
+.vscode/
+*.log
+
+# Audio files (optional, but usually researchers don't commit large binary assets)
+*.aif
+*.aiff
+*.wav
+*.mp3
+*.flac
